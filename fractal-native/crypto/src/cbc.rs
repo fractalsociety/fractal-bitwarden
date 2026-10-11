@@ -5,8 +5,8 @@
 //! Aes256CbcHmacSha256 is the construct used in type 2 EncStrings. It is authenticated encryption
 //! (AE) via Encrypt-then-MAC, but has no support for associated data (it is not AEAD).
 
+use aes::cipher::{block_padding::Pkcs7, BlockDecryptMut, BlockEncryptMut, KeyIvInit};
 use alloc::vec::Vec;
-use aes::cipher::{BlockDecryptMut, BlockEncryptMut, KeyIvInit, block_padding::Pkcs7};
 use hmac::Mac;
 use subtle::ConstantTimeEq;
 
@@ -100,4 +100,3 @@ fn calculate_mac(iv: &[u8], data: &[u8], mac_key: &[u8; MAC_KEY_SIZE]) -> [u8; M
         .expect("HMAC output size to be correct");
     mac
 }
-
