@@ -1,0 +1,15 @@
+[package]
+name = "fractal-bitwarden-crypto"
+version = "0.1.0"
+edition = "2021"
+license = "GPL-3.0-only"
+publish = false
+[workspace]
+[dependencies]
+aes = { version = "=0.8.4", default-features = false, features = ["zeroize"] }
+cbc = { version = "=0.1.2", default-features = false, features = ["alloc", "block-padding", "zeroize"] }
+hmac = { version = "=0.12.1", default-features = false }
+sha2 = { version = "=0.10.9", default-features = false }
+subtle = { version = "=2.6.1", default-features = false }
+base64 = { version = "=0.22.1", default-features = false, features = ["alloc"] }
+zeroize = { version = "=1.8.2", default-features = false, features = ["alloc"] }
